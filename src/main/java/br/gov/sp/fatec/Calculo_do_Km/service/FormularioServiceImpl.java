@@ -10,6 +10,7 @@ import java.util.List;
 
 import br.gov.sp.fatec.Calculo_do_Km.entity.Formulario;
 import br.gov.sp.fatec.Calculo_do_Km.entity.Usuario;
+import br.gov.sp.fatec.Calculo_do_Km.exception.RegistroNaoEncontradoException;
 import br.gov.sp.fatec.Calculo_do_Km.repository.FormularioRepository;
 import br.gov.sp.fatec.Calculo_do_Km.repository.UsuarioRepository;
 
@@ -67,20 +68,18 @@ public class FormularioServiceImpl implements FormularioService {
 
     @Override
     @Transactional
-    public Formulario criaFormulario (String nome, String senha, String modelo, BigDecimal valorCarro) {
-        Usuario user = userRepo.findByNome(nome);
+    public Formulario criaFormulario (String usuario, String modelo, BigDecimal valorCarro, BigDecimal depreciacao) {
+        Usuario user = userRepo.findByNome(usuario);
 
         if(user == null) {
-            user = new Usuario();
-            user.setNome(nome);
-            user.setSenha(senha);
-            userRepo.save(user);
+            throw new RegistroNaoEncontradoException("Usuário não encontrado!");
         }
 
         Formulario formulario = new Formulario();
         formulario.setUsuario(user);
 		formulario.setModelo(modelo);
 		formulario.setValorAutomovel(valorCarro);
+        formulario.setDepreciacao(depreciacao);
 		formRepo.save(formulario);
 
         return formulario;

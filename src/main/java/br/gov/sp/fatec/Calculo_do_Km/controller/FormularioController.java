@@ -60,8 +60,8 @@ public class FormularioController {
     @PostMapping
     public ResponseEntity<Formulario> cadastraNovoFormulario (@RequestBody Formulario formulario,
            UriComponentsBuilder uriComponentsBuilder) {
-        formulario = formService.criaFormulario(formulario.getUsuario().getNome(), formulario.getUsuario().getSenha(),
-                                                formulario.getModelo(), formulario.getValorAutomovel()); // validar se no formulario precisa informar a senha
+        formulario = formService.criaFormulario(formulario.getUsuario().getNome(), formulario.getModelo(), 
+                                formulario.getValorAutomovel(), formulario.getDepreciacao()); // validar se no formulario precisa informar a senha
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.setLocation(
             uriComponentsBuilder.path(

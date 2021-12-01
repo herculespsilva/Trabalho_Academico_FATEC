@@ -16,7 +16,7 @@ public interface FormularioService {
 
     public List<Formulario> buscaFormularioPorUsuarioNomeEValorSuperior(String nome, BigDecimal valor);
 
-    public Formulario criaFormulario (String nome, String senha, String modelo, BigDecimal valorCarro);
+    public Formulario criaFormulario (String usuario, String modelo, BigDecimal valorCarro, BigDecimal depreciacao);
 
     public void deleteFormulario(Long id);
 
