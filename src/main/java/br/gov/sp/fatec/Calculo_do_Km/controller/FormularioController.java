@@ -61,7 +61,7 @@ public class FormularioController {
     public ResponseEntity<Formulario> cadastraNovoFormulario (@RequestBody Formulario formulario,
            UriComponentsBuilder uriComponentsBuilder) {
         formulario = formService.criaFormulario(formulario.getUsuario().getNome(), formulario.getModelo(), 
-                                formulario.getValorAutomovel(), formulario.getDepreciacao()); // validar se no formulario precisa informar a senha
+                                formulario.getValor_automovel(), formulario.getDepreciacao()); // validar se no formulario precisa informar a senha
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.setLocation(
             uriComponentsBuilder.path(
@@ -82,7 +82,7 @@ public class FormularioController {
     @PutMapping(value="/altera/{id}")
     public Formulario update(@PathVariable("id") long id,@RequestBody Formulario formulario) {
         try{
-            return formService.updateFormulario(id, formulario.getModelo(), formulario.getValorAutomovel());
+            return formService.updateFormulario(id, formulario.getModelo(), formulario.getValor_automovel());
 
         }catch (Exception e){
             return null;

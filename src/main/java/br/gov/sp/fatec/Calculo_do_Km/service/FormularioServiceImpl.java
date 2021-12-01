@@ -78,7 +78,7 @@ public class FormularioServiceImpl implements FormularioService {
         Formulario formulario = new Formulario();
         formulario.setUsuario(user);
 		formulario.setModelo(modelo);
-		formulario.setValorAutomovel(valorCarro);
+		formulario.setValor_automovel(valorCarro);
         formulario.setDepreciacao(depreciacao);
 		formRepo.save(formulario);
 

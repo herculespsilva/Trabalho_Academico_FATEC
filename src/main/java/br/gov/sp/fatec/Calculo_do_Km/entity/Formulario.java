@@ -48,10 +48,8 @@ private BigDecimal depreciacao;
 @JoinColumn(name = "for_usr_id")
 private Usuario usuario;
 
-/**Getters e Setters dos atributos */
-
 public Long getId() {
-    return this.id;
+    return id;
 }
 
 public void setId(Long id) {
@@ -59,19 +57,15 @@ public void setId(Long id) {
 }
 
 public String getModelo() {
-    return this.modelo;
+    return modelo;
 }
 
 public void setModelo(String modelo) {
     this.modelo = modelo;
 }
 
-public BigDecimal getValorAutomovel() {
-    return this.valor_automovel;
-}
-
-public void setValorAutomovel(BigDecimal valor_automovel) {
-    this.valor_automovel = valor_automovel;
+public BigDecimal getValor_automovel() {
+    return valor_automovel;
 }
 
 public void setValor_automovel(BigDecimal valor_automovel) {
@@ -93,5 +87,8 @@ public Usuario getUsuario() {
 public void setUsuario(Usuario usuario) {
     this.usuario = usuario;
 }
+
+/**Getters e Setters dos atributos */
+
 
 }
