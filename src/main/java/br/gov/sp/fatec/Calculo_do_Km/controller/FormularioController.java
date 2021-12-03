@@ -56,6 +56,12 @@ public class FormularioController {
         return formService.buscaFormularioPorUsuarioNomeEValorSuperior(nome, valor);
     }
 
+    @JsonView(View.FormularioResumo.class) //testar consulta com dois parametrod
+    @GetMapping(value = "/usuario")
+    public List<Formulario> buscarFormularioPorUsuario(@RequestParam(value="usuario") String usuario) {
+        return formService.buscarFormularioPorUsuario(usuario);
+    }
+
     @JsonView(View.FormularioResumo.class)
     @PostMapping
     public ResponseEntity<Formulario> cadastraNovoFormulario (@RequestBody Formulario formulario,
