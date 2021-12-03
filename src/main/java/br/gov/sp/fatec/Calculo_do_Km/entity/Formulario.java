@@ -37,7 +37,7 @@ private String modelo;
 @Digits(integer = 6, fraction = 2)
 private BigDecimal valor_automovel;
 
-@JsonView(View.FormularioResumo.class)
+@JsonView({View.UsuarioResumo.class, View.FormularioResumo.class})
 @Column(name = "for_depreciacao")
 @Digits(integer = 6, fraction = 2)
 private BigDecimal depreciacao;

@@ -54,6 +54,19 @@ public class FormularioServiceImpl implements FormularioService {
 
     @Override
     @PreAuthorize("isAuthenticated()")
+    public List<Formulario> buscarFormularioPorUsuario(String usuario) {
+        if (usuario != "") {
+            List<Formulario> formulario = formRepo.querybuscaTodosFormularioPorUsuarioNome(usuario);
+            
+            if(!(formulario.isEmpty())) { // negação de vazio 
+                return formulario;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    @PreAuthorize("isAuthenticated()")
     public List<Formulario> buscaFormularioPorUsuarioNomeEValorSuperior(String nome, BigDecimal valor) {
         Usuario usuario = userRepo.findByNome(nome);
 
