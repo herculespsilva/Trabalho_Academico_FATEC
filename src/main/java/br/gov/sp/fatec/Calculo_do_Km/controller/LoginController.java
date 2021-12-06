@@ -29,6 +29,7 @@ public class LoginController {
     auth = authManager.authenticate(auth); /* Deopis de autenticato, as autorizacoes ja estara no contexto devido a uma busca no db */
     login.setPassword(null);
     login.setToken(JwtUtils.generateToken(auth));
+    login.setAutorizacao(auth.getAuthorities().toString());
     return login;
   }
   
